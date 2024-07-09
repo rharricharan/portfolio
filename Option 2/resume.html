@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resumé</title>
+    <link rel="stylesheet" href="resume.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:slnt,wght@-10..0,100..900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="header-wrap">
+            <a class="name">
+                <h3 class="logo">Ryan Harricharan</h3>
+            </a>
+            <div class="mid-container">
+                <a class="work" href="index.html">
+                    <h3 class="menu">Work</h3>
+                </a>
+                <a class="ideas" href="ideas.html">
+                    <h3 class="menu">Ideas</h3>
+                </a>
+                <a class="about active" href="resume.html">
+                    <h3 class="menu active">Resumé</h3>
+                </a>
+            </div>
+            <a class="contact" onclick="copyToClipboard()">
+                <h3 class="link">Email Me</h3>
+                <span class="tooltip" id="tooltip">Copy to clipboard</span>
+            </a>
+        </div>
+    </header>
+
+    <script>
+        function copyToClipboard() {
+            const tooltip = document.getElementById('tooltip');
+
+            const email = 'harricharan07@gmail.com';
+
+            const checkmarkSVG = `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 20 20" fill="none">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M16.7045 4.15347C17.034 4.4045 17.0976 4.87509 16.8466 5.20457L8.84657 15.7046C8.71541 15.8767 8.51627 15.9838 8.30033 15.9983C8.08439 16.0129 7.87271 15.9334 7.71967 15.7804L3.21967 11.2804C2.92678 10.9875 2.92678 10.5126 3.21967 10.2197C3.51256 9.92682 3.98744 9.92682 4.28033 10.2197L8.17351 14.1129L15.6534 4.29551C15.9045 3.96603 16.3751 3.90243 16.7045 4.15347Z" fill="#34F63C"/>
+            </svg>`;
+
+            tooltip.innerHTML = `${checkmarkSVG}Saved to clipboard`;
+            tooltip.classList.add('clicked');
+
+            navigator.clipboard.writeText(email).then(() => {
+                setTimeout(() => {
+                    tooltip.classList.remove('clicked');
+                    tooltip.innerHTML = "Copy to clipboard";
+                }, 1500); // Reset after 1.5 seconds
+            });
+        }
+    </script>
+
+    <div class="page-wrapper">
+        <div class="cv-container">
+            <div class="cv-wrap">
+                <div class="item">
+                    <div class="occupation">
+                        <h6>Smartstop</h6>
+                        <p>Product Designer</p>
+                    </div>
+                    <div class="duration">
+                        <p class="year">2023 - 2024</p>
+                    </div>
+                </div>
+
+                <div class="item">
+                    <div class="occupation">
+                        <h6>Lumina Studio®</h6>
+                        <p>Founder, CEO</p>
+                    </div>
+                    <div class="duration">
+                        <p class="year">2021 - 2024</p>
+                    </div>
+                </div>
+
+                <div class="item">
+                    <div class="occupation">
+                        <h6>RH Design</h6>
+                        <p>Freelance Designer</p>
+                    </div>
+                    <div class="duration">
+                        <p class="year">2017 - 2023</p>
+                    </div>
+                </div>
+
+                <div class="item">
+                    <div class="occupation">
+                        <h6>Our Next Energy</h6>
+                        <p>Senior UX Designer</p>
+                    </div>
+                    <div class="duration">
+                        <p class="year">2023 - 2023</p>
+                    </div>
+                </div>
+                
+                <div class="repeat item">
+                    <a class="repeat-link" href="resume.html">
+                        <div class="repeat-container">
+                            <svg class="rotate" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                <path d="M16.023 9.34841H21.0156V9.34663M2.98438 19.6444V14.6517M2.98438 14.6517L7.97702 14.6517M2.98438 14.6517L6.16527 17.8347C7.15579 18.8271 8.41285 19.58 9.8646 19.969C14.2657 21.1483 18.7895 18.5364 19.9687 14.1353M4.03097 9.86484C5.21024 5.46374 9.73402 2.85194 14.1351 4.03121C15.5869 4.4202 16.8439 5.17312 17.8345 6.1655L21.0156 9.34663M21.0156 4.3558V9.34663" stroke="white" opacity="50%" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                            <span class="tooltip">Repeat animation</span>
+                        </div>
+                    </a>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.2/gsap.min.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+          gsap.to('.item', {
+            y: 0,
+            opacity: 1,
+            duration: 0.5,
+            stagger: 0.3,
+            ease: 'power2.out',
+            delay: 0.1,
+            startAt: { y: 24 }
+          });
+        });
+      </script>      
+
+    <footer>
+        <h3 class="footer-txt">©2024 Ryan Harricharan.  Designed & Coded by Ryan Harricharan.</h3>
+    </footer>
+
+</body>
+</html>
